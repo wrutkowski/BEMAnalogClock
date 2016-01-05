@@ -34,6 +34,14 @@
     // the center of rotation.
     CGPoint bottom = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2 + self.offsetLength);
     
+    // shadow
+    UIBezierPath *shadowPath = [UIBezierPath bezierPath];
+    [shadowPath setLineWidth:self.width+0.5];
+    [shadowPath moveToPoint:bottom];
+    [shadowPath addLineToPoint:top];
+    [[[UIColor blackColor] colorWithAlphaComponent:0.3] set]; // sets the color of the shadow
+    [shadowPath stroke];
+
     // draw the line from the bottom to the top that has line width self.width.
     UIBezierPath *path = [UIBezierPath bezierPath];
     [path setLineWidth:self.width];
